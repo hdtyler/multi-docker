@@ -21,3 +21,14 @@ after_success:
     - docker push hdtyler/multi-nginx
     - docker push hdtyler/multi-server
     - docker push hdtyler/multi-worker
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "us-west-2"
+    app: "multi-dcoker"
+    env: "MultiDocker-env"
+    bucket_name: "elasticbeanstalk-us-west-2-768762338024"
+    bucket_path: "docker-multi"
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
